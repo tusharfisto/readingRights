@@ -27,5 +27,5 @@ urlpatterns = [
     path('updateGr',mysite.views.updateGr,name="updateGr"),
     path('delgr',mysite.views.delgr,name="delgr"),
     path('search',mysite.views.search,name="search"),
-    path("logoff",mysite.views.logoff,name="logoff")
+    path("logoff",mysite.views.search)
 ]
