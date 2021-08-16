@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Welcome</title>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+        
+
+    })
+    </script>
+<style>
+    .action1,
+    .action2 {
+        height: 250px;
+    }
+
+    /* .action:hover{
+    background-color:lightgray;
+} */
+    ul {
+        background-color: white;
+        border-radius: 4px;
+        ;
+    }
+
+    body {
+        background-color: #492F92;
+    }
+
+    a {
+        color: black;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<br><br><br>
+    <div class="row">
+        <div class="col-sm-7">
+        <div class="card">
+                        <div class="card-header">
+                            <h6 style="text-align: center;">Welcome User These are your today's groceries</h6>
+                        </div>
+                        
+        </div>            
+        </div>
+
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-header">
+<div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+    <input placeholder="Select date" type="date" id="example" class="form-control">
+    
+</div>                </div>
+        
+            </div>
+        </div>
+       
+    </div>
+
+</div>
+</body>
+</html>

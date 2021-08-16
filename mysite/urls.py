@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 import mysite.views
- 
+
 urlpatterns = [
-    path('', mysite.views.index,name="index")
+    path('', mysite.views.index, name="index"),
+    path('register', mysite.views.register, name="register"),
+    path('signup',mysite.views.signup,name='signup'),
+    path('login',mysite.views.login,name='login')
 ]
