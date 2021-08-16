@@ -72,7 +72,12 @@ def signup(request):
         return render(request, "register.html", context={"success_status": 0})
     except:
         print("i am here")
-        userTable.objects.create(username=request.POST['uname'],password=request.POST['password'], fname=request.POST['fname'],lname=request.POST['lname'])
+        pp=userTable()
+        pp.username=request.POST['uname']
+        pp.password=request.POST['password']
+        pp.fname=request.POST['fname']
+        pp.lname=request.POST['lname']
+        pp.save()
         return render(request, "index.html", context={"success_status": 1})
 
     
