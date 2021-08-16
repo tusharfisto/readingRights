@@ -11,7 +11,6 @@ import pymongo
 from django.urls import reverse
 from mysite.models import userTable,userSession,usergr 
 
-s_date="NA"
 
 
 def logoff(request):
@@ -66,13 +65,16 @@ def index(request):
 def register(request):
     return render(request,"register.html")
 
+
 def signup(request):
+    print(request.POST)
     try:
         check_ex=userTable.objects.get(username=request.POST['uname'])
         return render(request, "register.html", context={"success_status": 0})
     except:
         print("i am here")
         pp=userTable()
+        print(request.POST['uname'])
         pp.username=request.POST['uname']
         pp.password=request.POST['password']
         pp.fname=request.POST['fname']
@@ -125,13 +127,7 @@ def login(request):
             sp_key=request.session['user_key']         
         l_user = userTable.objects.get(username=uname,password=password)
         A_db_sessions=list(userSession.objects.filter(username=uname))
-        # gr_data=usergr.objects.filter(username=uname)
-        print(s_date)
-        if s_date=="NA":
-            print("All goof")
-            gr_data=usergr.objects.filter(username=uname)
-        else:
-            gr_data=usergr.objects.filter(username=uname,item_date=s_date)
+        gr_data=usergr.objects.filter(username=uname)
         userData={"user_data":l_user,"active_session_data":A_db_sessions,"this_session_key":sp_key,"gr_data":gr_data}   
         print(userData)
         return render(request, "dashboard.html", context={"userData": userData,"reset_code": 3})
