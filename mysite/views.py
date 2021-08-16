@@ -67,16 +67,12 @@ def register(request):
     return render(request,"register.html")
 
 def signup(request):
-    user_object=userTable()
-    user_object.fname = request.POST['fname']
-    user_object.lname = request.POST['lname']
-    user_object.uname = request.POST['uname']
-    user_object.password = request.POST['password']
     try:
         check_ex=userTable.objects.get(username=request.POST['uname'])
         return render(request, "register.html", context={"success_status": 0})
     except:
-        user_object.save()
+        print("i am here")
+        userTable.objects.create(username=request.POST['uname'],password=request.POST['password'], fname=request.POST['fname'],lname=request.POST['lname'])
         return render(request, "index.html", context={"success_status": 1})
 
     
