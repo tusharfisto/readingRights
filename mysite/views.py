@@ -153,10 +153,15 @@ def updateGr(request):
     try:
         print(request.session['username'])
         old_data=request.POST['o_data'].split(",")
-        print(request.POST['Item_date'])
+        if(request.POST['Item_date']==""):
+            old_date = request.POST['o_date1']
+            n_date = request.POST['o_date1']
+        else:
+            old_date=request.POST['o_date1']
+            n_date=request.POST['Item_date']
         pp=userTable.objects.get(username=request.session['username'])
-        gr_obj = usergr.objects.filter(username=pp,item_quan=old_data[0],item_name=old_data[1],item_status=old_data[2],item_date=request.POST['o_date1'])
-        gr_obj.update(username=pp, item_quan=request.POST['Item_quan'], item_name=request.POST['Item_name'],item_status=request.POST.get('optradio'), item_date=request.POST['Item_date'])
+        gr_obj = usergr.objects.filter(username=pp,item_quan=old_data[0],item_name=old_data[1],item_status=old_data[2],item_date=old_date)
+        gr_obj.update(username=pp, item_quan=request.POST['Item_quan'], item_name=request.POST['Item_name'],item_status=request.POST.get('optradio'), item_date=n_date)
         return HttpResponseRedirect(reverse("login"))
     except:
         return render(request, "index.html")
